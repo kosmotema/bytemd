@@ -1,12 +1,12 @@
 {
-  "name": "@bytemd/monorepo",
+  "name": "@kosmotema/bytemd-monorepo",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
     "build": "pnpm clean && node scripts/build.mjs && tsc --build",
-    "clean": "rm -rf packages/*/tsconfig.tsbuildinfo && rm -rf packages/*/dist",
+    "clean": "rimraf -g packages/*/tsconfig.tsbuildinfo && rimraf -g packages/*/dist",
     "dev": "pnpm --filter playground dev",
     "format": "prettier --write '**/*.{ts,tsx,json,md,svelte}' && sort-package-json package.json 'packages/*/package.json'",
     "postinstall": "node scripts/postinstall.mjs && pnpm format && sort-json packages/*/locales/*.json",
@@ -43,6 +43,7 @@
     "prettier": "^2.8.7",
     "prettier-plugin-svelte": "^2.10.0",
     "resolve": "^1.22.1",
+    "rimraf": "^5.0.0",
     "sass": "^1.60.0",
     "sort-json": "^2.0.1",
     "sort-package-json": "^2.4.1",

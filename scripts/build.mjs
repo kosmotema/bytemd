@@ -20,7 +20,7 @@ import { build } from 'vite'
     const root = path.resolve(packagesDir, name)
     process.chdir(root)
 
-    if (name === 'bytemd') {
+    if (name === '@kosmotema/bytemd') {
       // some parts are from here https://github.com/sveltejs/kit/blob/master/packages/kit/src/packaging/typescript.js
       await emitDts({
         svelteShimsPath: 'node_modules/svelte2tsx/svelte-shims.d.ts',
@@ -107,7 +107,7 @@ import { build } from 'vite'
         },
         resolve: { alias },
         plugins: [
-          name === 'bytemd' &&
+          name === '@kosmotema/bytemd' &&
             svelte({
               preprocess: [sveltePreprocessor],
             }),
@@ -117,7 +117,7 @@ import { build } from 'vite'
       })
     }
 
-    if (name === 'bytemd') {
+    if (name === '@kosmotema/bytemd') {
       await fs.emptyDir('svelte')
 
       console.log('build svelte files...')

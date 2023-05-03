@@ -1,4 +1,4 @@
-import type { BytemdPlugin } from 'bytemd'
+import type { BytemdPlugin } from '@kosmotema/bytemd'
 import { load } from 'js-yaml'
 import remarkFrontmatter from 'remark-frontmatter'
 

@@ -1,6 +1,6 @@
 # ByteMD
 
-![test](https://github.com/bytedance/bytemd/workflows/test/badge.svg) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbytedance%2Fbytemd.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbytedance%2Fbytemd?ref=badge_shield)
+![test](https://github.com/kosmotema/bytemd/workflows/test/badge.svg) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkosmotema%2Fbytemd.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkosmotema%2Fbytemd?ref=badge_shield)
 
 ByteMD is a Markdown editor component built with Svelte. It could also be used in other libraries/frameworks such as React, Vue and Angular.
 
@@ -17,10 +17,10 @@ Playground here: https://bytemd.js.org/playground/
 
 | Package | Status | Description |
 | --- | --- | --- |
-| [bytemd](https://github.com/bytedance/bytemd/tree/main/packages/bytemd) | [![npm](https://img.shields.io/npm/v/bytemd?label=)](https://npm.im/bytemd) | Svelte/Vanilla JS component |
-| [@bytemd/react](https://github.com/bytedance/bytemd/tree/main/packages/react) | [![npm](https://img.shields.io/npm/v/@bytemd/react.svg?label=)](https://npm.im/@bytemd/react) | React component |
-| [@bytemd/vue](https://github.com/bytedance/bytemd/tree/main/packages/vue) | [![npm](https://img.shields.io/npm/v/@bytemd/vue.svg?label=)](https://npm.im/@bytemd/vue) | Vue 2 component |
-| [@bytemd/vue-next](https://github.com/bytedance/bytemd/tree/main/packages/vue-next) | [![npm](https://img.shields.io/npm/v/@bytemd/vue-next.svg?label=)](https://npm.im/@bytemd/vue-next) | Vue 3 component |
+| [bytemd](https://github.com/kosmotema/bytemd/tree/main/packages/bytemd) | [![npm](https://img.shields.io/npm/v/bytemd?label=)](https://npm.im/bytemd) | Svelte/Vanilla JS component |
+| [@kosmotema/bytemd-react](https://github.com/kosmotema/bytemd/tree/main/packages/react) | [![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-react.svg?label=)](https://npm.im/@kosmotema/bytemd-react) | React component |
+| [@kosmotema/bytemd-vue](https://github.com/kosmotema/bytemd/tree/main/packages/vue) | [![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-vue.svg?label=)](https://npm.im/@kosmotema/bytemd-vue) | Vue 2 component |
+| [@kosmotema/bytemd-vue-next](https://github.com/kosmotema/bytemd/tree/main/packages/vue-next) | [![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-vue-next.svg?label=)](https://npm.im/@kosmotema/bytemd-vue-next) | Vue 3 component |
 
 ### Legacy browsers support
 
@@ -28,7 +28,7 @@ The default entry of NPM package only supports modern browsers. To make legacy b
 
 > The ES5 bundle will no longer be available after version 1.11.0. If you need it, you can use [version 1.11.0](https://unpkg.com/bytemd@1.11.0/dist/index.es5.min.js) or earlier versions
 
-Notice that polyfills are not included, and should be imported manually, see the [legacy browser example](https://github.com/bytedance/bytemd/blob/main/examples/legacy-browser/index.html).
+Notice that polyfills are not included, and should be imported manually, see the [legacy browser example](https://github.com/kosmotema/bytemd/blob/main/examples/legacy-browser/index.html).
 
 ## Usage
 
@@ -44,8 +44,8 @@ import 'bytemd/dist/index.css'
 
 ```svelte
 <script>
-  import { Editor, Viewer } from 'bytemd'
-  import gfm from '@bytemd/plugin-gfm'
+  import { Editor, Viewer } from '@kosmotema/bytemd'
+  import gfm from '@kosmotema/bytemd-plugin-gfm'
 
   let value
   const plugins = [
@@ -66,8 +66,8 @@ import 'bytemd/dist/index.css'
 ### React
 
 ```js
-import gfm from '@bytemd/plugin-gfm'
-import { Editor, Viewer } from '@bytemd/react'
+import gfm from '@kosmotema/bytemd-plugin-gfm'
+import { Editor, Viewer } from '@kosmotema/bytemd-react'
 
 const plugins = [
   gfm(),
@@ -97,8 +97,8 @@ const App = () => {
 </template>
 
 <script>
-import gfm from '@bytemd/plugin-gfm'
-import { Editor, Viewer } from '@bytemd/vue'
+import gfm from '@kosmotema/bytemd-plugin-gfm'
+import { Editor, Viewer } from '@kosmotema/bytemd-vue'
 
 const plugins = [
   gfm(),
@@ -122,8 +122,8 @@ export default {
 ### Vanilla JS
 
 ```js
-import gfm from '@bytemd/plugin-gfm'
-import { Editor, Viewer } from 'bytemd'
+import { Editor, Viewer } from '@kosmotema/bytemd'
+import gfm from '@kosmotema/bytemd-plugin-gfm'
 
 const plugins = [
   gfm(),
@@ -180,7 +180,7 @@ The default height of ByteMD Editor is `300px`. It could be overridden by CSS:
 }
 ```
 
-The other styles could also be overridden, see [the default style](https://github.com/bytedance/bytemd/blob/main/packages/bytemd/src/index.scss).
+The other styles could also be overridden, see [the default style](https://github.com/kosmotema/bytemd/blob/main/packages/bytemd/src/index.scss).
 
 #### Viewer
 
@@ -196,16 +196,16 @@ If you have more customized needs, you could also write your own plugin to suppo
 
 | Package | Status | Description |
 | --- | --- | --- |
-| [@bytemd/plugin-breaks](https://github.com/bytedance/bytemd/tree/main/packages/plugin-breaks) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-breaks.svg?label=)](https://npm.im/@bytemd/plugin-breaks) | Support breaks |
-| [@bytemd/plugin-frontmatter](https://github.com/bytedance/bytemd/tree/main/packages/plugin-frontmatter) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-frontmatter.svg?label=)](https://npm.im/@bytemd/plugin-frontmatter) | Parse frontmatter |
-| [@bytemd/plugin-gemoji](https://github.com/bytedance/bytemd/tree/main/packages/plugin-gemoji) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-gemoji.svg?label=)](https://npm.im/@bytemd/plugin-gemoji) | Support Gemoji shortcodes |
-| [@bytemd/plugin-gfm](https://github.com/bytedance/bytemd/tree/main/packages/plugin-gfm) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-gfm.svg?label=)](https://npm.im/@bytemd/plugin-gfm) | Support GFM (autolink literals, strikethrough, tables, tasklists) |
-| [@bytemd/plugin-highlight](https://github.com/bytedance/bytemd/tree/main/packages/plugin-highlight) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-highlight.svg?label=)](https://npm.im/@bytemd/plugin-highlight) | Highlight code blocks |
-| [@bytemd/plugin-highlight-ssr](https://github.com/bytedance/bytemd/tree/main/packages/plugin-highlight-ssr) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-highlight-ssr.svg?label=)](https://npm.im/@bytemd/plugin-highlight-ssr) | Highlight code blocks (SSR compatible) |
-| [@bytemd/plugin-math](https://github.com/bytedance/bytemd/tree/main/packages/plugin-math) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-math.svg?label=)](https://npm.im/@bytemd/plugin-math) | Support math formula |
-| [@bytemd/plugin-math-ssr](https://github.com/bytedance/bytemd/tree/main/packages/plugin-math-ssr) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-math-ssr.svg?label=)](https://npm.im/@bytemd/plugin-math-ssr) | Support math formula (SSR compatible) |
-| [@bytemd/plugin-medium-zoom](https://github.com/bytedance/bytemd/tree/main/packages/plugin-medium-zoom) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-medium-zoom.svg?label=)](https://npm.im/@bytemd/plugin-medium-zoom) | Zoom images like Medium |
-| [@bytemd/plugin-mermaid](https://github.com/bytedance/bytemd/tree/main/packages/plugin-mermaid) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-mermaid.svg?label=)](https://npm.im/@bytemd/plugin-mermaid) | Support Mermaid diagram |
+| [@kosmotema/bytemd-plugin-breaks](https://github.com/kosmotema/bytemd/tree/main/packages/plugin-breaks) | [![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-plugin-breaks.svg?label=)](https://npm.im/@kosmotema/bytemd-plugin-breaks) | Support breaks |
+| [@kosmotema/bytemd-plugin-frontmatter](https://github.com/kosmotema/bytemd/tree/main/packages/plugin-frontmatter) | [![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-plugin-frontmatter.svg?label=)](https://npm.im/@kosmotema/bytemd-plugin-frontmatter) | Parse frontmatter |
+| [@kosmotema/bytemd-plugin-gemoji](https://github.com/kosmotema/bytemd/tree/main/packages/plugin-gemoji) | [![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-plugin-gemoji.svg?label=)](https://npm.im/@kosmotema/bytemd-plugin-gemoji) | Support Gemoji shortcodes |
+| [@kosmotema/bytemd-plugin-gfm](https://github.com/kosmotema/bytemd/tree/main/packages/plugin-gfm) | [![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-plugin-gfm.svg?label=)](https://npm.im/@kosmotema/bytemd-plugin-gfm) | Support GFM (autolink literals, strikethrough, tables, tasklists) |
+| [@kosmotema/bytemd-plugin-highlight](https://github.com/kosmotema/bytemd/tree/main/packages/plugin-highlight) | [![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-plugin-highlight.svg?label=)](https://npm.im/@kosmotema/bytemd-plugin-highlight) | Highlight code blocks |
+| [@kosmotema/bytemd-plugin-highlight-ssr](https://github.com/kosmotema/bytemd/tree/main/packages/plugin-highlight-ssr) | [![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-plugin-highlight-ssr.svg?label=)](https://npm.im/@kosmotema/bytemd-plugin-highlight-ssr) | Highlight code blocks (SSR compatible) |
+| [@kosmotema/bytemd-plugin-math](https://github.com/kosmotema/bytemd/tree/main/packages/plugin-math) | [![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-plugin-math.svg?label=)](https://npm.im/@kosmotema/bytemd-plugin-math) | Support math formula |
+| [@kosmotema/bytemd-plugin-math-ssr](https://github.com/kosmotema/bytemd/tree/main/packages/plugin-math-ssr) | [![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-plugin-math-ssr.svg?label=)](https://npm.im/@kosmotema/bytemd-plugin-math-ssr) | Support math formula (SSR compatible) |
+| [@kosmotema/bytemd-plugin-medium-zoom](https://github.com/kosmotema/bytemd/tree/main/packages/plugin-medium-zoom) | [![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-plugin-medium-zoom.svg?label=)](https://npm.im/@kosmotema/bytemd-plugin-medium-zoom) | Zoom images like Medium |
+| [@kosmotema/bytemd-plugin-mermaid](https://github.com/kosmotema/bytemd/tree/main/packages/plugin-mermaid) | [![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-plugin-mermaid.svg?label=)](https://npm.im/@kosmotema/bytemd-plugin-mermaid) | Support Mermaid diagram |
 
 ### Technical Overview
 
@@ -221,7 +221,7 @@ ByteMD uses [remark](https://github.com/remarkjs/remark) and [rehype](https://gi
 
 It could also be described as a flowchart:
 
-![plugin system](https://raw.githubusercontent.com/bytedance/bytemd/main/assets/plugin.svg)
+![plugin system](https://raw.githubusercontent.com/kosmotema/bytemd/main/assets/plugin.svg)
 
 The 2,5,7 steps are designed for user customization via ByteMD plugin API.
 
@@ -232,7 +232,7 @@ We'll take Math formula plugin as an example to walk you through the process.
 First of all, scaffold the project according to the `BytemdPlugin` type signature:
 
 ```ts
-import type { BytemdPlugin } from 'bytemd'
+import type { BytemdPlugin } from '@kosmotema/bytemd'
 
 export default function mathPlugin(): BytemdPlugin {
   return {
@@ -250,7 +250,7 @@ Then we look into the requirement more closely: If we want to render syntax like
 For the first thing, luckily, we don't need to implement it with our own because [remark-math](https://github.com/remarkjs/remark-math) already did it. The only thing we need to do is to import and use it:
 
 ```diff
-import type { BytemdPlugin } from 'bytemd'
+import type { BytemdPlugin } from '@kosmotema/bytemd'
 +import remarkMath from 'remark-math'
 
 export default function mathPlugin(): BytemdPlugin {
@@ -261,11 +261,11 @@ export default function mathPlugin(): BytemdPlugin {
 }
 ```
 
-Then consider the second thing, it would be a little complicated because we have two choices, do it in step 5 or 7. The difference is that step 5 is more friendly with SSR, while step 7 hand over the rendering to the client-side. This is why we have two plugin: [@bytemd/plugin-math](https://github.com/bytedance/bytemd/tree/main/packages/plugin-math) and [@bytemd/plugin-math-ssr](https://github.com/bytedance/bytemd/tree/main/packages/plugin-math-ssr).
+Then consider the second thing, it would be a little complicated because we have two choices, do it in step 5 or 7. The difference is that step 5 is more friendly with SSR, while step 7 hand over the rendering to the client-side. This is why we have two plugin: [@kosmotema/bytemd-plugin-math](https://github.com/kosmotema/bytemd/tree/main/packages/plugin-math) and [@kosmotema/bytemd-plugin-math-ssr](https://github.com/kosmotema/bytemd/tree/main/packages/plugin-math-ssr).
 
 ```diff
 // if we choose step 5:
-import type { BytemdPlugin } from 'bytemd'
+import type { BytemdPlugin } from '@kosmotema/bytemd'
 import remarkMath from 'remark-math'
 +import rehypeKatex from 'rehype-katex'
 
@@ -277,7 +277,7 @@ export default function mathPlugin(): BytemdPlugin {
 }
 
 // if we choose step 7:
-import type { BytemdPlugin } from 'bytemd'
+import type { BytemdPlugin } from '@kosmotema/bytemd'
 import remarkMath from 'remark-math'
 +import rehypeKatex from 'rehype-katex'
 
@@ -331,10 +331,10 @@ Now we have completed a minimalist version of the plugin! For more details and r
 
 ## Contributors
 
-[![](https://contrib.rocks/image?repo=bytedance/bytemd)](https://github.com/bytedance/bytemd/graphs/contributors)
+[![](https://contrib.rocks/image?repo=kosmotema/bytemd)](https://github.com/kosmotema/bytemd/graphs/contributors)
 
 ## License
 
 MIT
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbytedance%2Fbytemd.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbytedance%2Fbytemd?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkosmotema%2Fbytemd.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkosmotema%2Fbytemd?ref=badge_large)

@@ -1,5 +1,5 @@
 {
-	"name": "@bytemd/example-svelte",
+	"name": "@kosmotema/bytemd-example-svelte",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "svelte-kit dev",
@@ -11,10 +11,10 @@
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
-    "@bytemd/plugin-gfm": "latest",
+		"@kosmotema/bytemd": "latest",
+		"@kosmotema/bytemd-plugin-gfm": "latest",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
-    "bytemd": "latest",
 		"svelte": "^3.44.0",
 		"svelte-check": "^2.7.1",
 		"svelte-preprocess": "^4.10.6",

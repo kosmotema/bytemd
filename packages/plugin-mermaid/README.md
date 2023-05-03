@@ -1,14 +1,14 @@
-# @bytemd/plugin-mermaid
+# @kosmotema/bytemd-plugin-mermaid
 
-[![npm](https://img.shields.io/npm/v/@bytemd/plugin-mermaid.svg)](https://npm.im/@bytemd/plugin-mermaid)
+[![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-plugin-mermaid.svg)](https://npm.im/@kosmotema/bytemd-plugin-mermaid)
 
 ByteMD plugin to support Mermaid diagram
 
 ## Usage
 
 ```js
-import mermaid from '@bytemd/plugin-mermaid'
-import { Editor } from 'bytemd'
+import { Editor } from '@kosmotema/bytemd'
+import mermaid from '@kosmotema/bytemd-plugin-mermaid'
 
 new Editor({
   target: document.body,

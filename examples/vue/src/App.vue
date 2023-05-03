@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Editor } from '@bytemd/vue'
+import { Editor } from '@kosmotema/bytemd-vue'
 import 'bytemd/dist/index.css'
 
 export default Vue.extend({

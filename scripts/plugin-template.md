@@ -1,6 +1,6 @@
-# @bytemd/plugin-{{name}}
+# @kosmotema/bytemd-plugin-{{name}}
 
-[![npm](https://img.shields.io/npm/v/@bytemd/plugin-{{name}}.svg)](https://npm.im/@bytemd/plugin-{{name}})
+[![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-plugin-{{name}}.svg)](https://npm.im/@kosmotema/bytemd-plugin-{{name}})
 
 {{{desc}}}
 
@@ -8,8 +8,8 @@
 
 ```js
 {{{header}}}
-import { Editor } from 'bytemd'
-import {{importedName}} from '@bytemd/plugin-{{name}}'
+import { Editor } from '@kosmotema/bytemd'
+import {{importedName}} from '@kosmotema/bytemd-plugin-{{name}}'
 
 new Editor({
   target: document.body,

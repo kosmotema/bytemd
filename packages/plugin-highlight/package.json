@@ -1,14 +1,20 @@
 {
-  "name": "@bytemd/plugin-highlight",
+  "name": "@kosmotema/bytemd-plugin-highlight",
   "version": "1.21.0",
   "description": "ByteMD plugin to highlight code blocks",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bytedance/bytemd.git",
+    "url": "https://github.com/kosmotema/bytemd.git",
     "directory": "packages/plugin-highlight"
   },
   "license": "MIT",
   "author": "Rongjian Zhang",
+  "contributors": [
+    {
+      "name": "Artem Pitikin",
+      "email": "git@kosmotema.dev"
+    }
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -31,9 +37,9 @@
     "highlight.js": "^11.7.0"
   },
   "devDependencies": {
-    "bytemd": "workspace:*"
+    "@kosmotema/bytemd": "workspace:*"
   },
   "peerDependencies": {
-    "bytemd": "^1.5.0"
+    "@kosmotema/bytemd": "^1.5.0"
   }
 }

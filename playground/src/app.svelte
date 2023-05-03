@@ -1,14 +1,14 @@
 <script lang="ts">
   import markdownText from './text.md?raw'
-  import breaks from '@bytemd/plugin-breaks'
-  import frontmatter from '@bytemd/plugin-frontmatter'
-  import gemoji from '@bytemd/plugin-gemoji'
-  import gfm from '@bytemd/plugin-gfm'
-  import highlight from '@bytemd/plugin-highlight'
-  import math from '@bytemd/plugin-math'
-  import mediumZoom from '@bytemd/plugin-medium-zoom'
-  import mermaid from '@bytemd/plugin-mermaid'
-  import { Editor } from 'bytemd'
+  import { Editor } from '@kosmotema/bytemd'
+  import breaks from '@kosmotema/bytemd-plugin-breaks'
+  import frontmatter from '@kosmotema/bytemd-plugin-frontmatter'
+  import gemoji from '@kosmotema/bytemd-plugin-gemoji'
+  import gfm from '@kosmotema/bytemd-plugin-gfm'
+  import highlight from '@kosmotema/bytemd-plugin-highlight'
+  import math from '@kosmotema/bytemd-plugin-math'
+  import mediumZoom from '@kosmotema/bytemd-plugin-medium-zoom'
+  import mermaid from '@kosmotema/bytemd-plugin-mermaid'
   import 'bytemd/dist/index.css'
   import 'github-markdown-css'
   import 'highlight.js/styles/vs.css'
@@ -27,19 +27,28 @@
     import.meta.glob('/node_modules/bytemd/locales/*.json', { eager: true })
   )
   const gfmLocales = stripPrefixes(
-    import.meta.glob('/node_modules/@bytemd/plugin-gfm/locales/*.json', {
-      eager: true,
-    })
+    import.meta.glob(
+      '/node_modules/@kosmotema/bytemd-plugin-gfm/locales/*.json',
+      {
+        eager: true,
+      }
+    )
   )
   const mathLocales = stripPrefixes(
-    import.meta.glob('/node_modules/@bytemd/plugin-math/locales/*.json', {
-      eager: true,
-    })
+    import.meta.glob(
+      '/node_modules/@kosmotema/bytemd-plugin-math/locales/*.json',
+      {
+        eager: true,
+      }
+    )
   )
   const mermaidLocales = stripPrefixes(
-    import.meta.glob('/node_modules/@bytemd/plugin-mermaid/locales/*.json', {
-      eager: true,
-    })
+    import.meta.glob(
+      '/node_modules/@kosmotema/bytemd-plugin-mermaid/locales/*.json',
+      {
+        eager: true,
+      }
+    )
   )
 
   let value = markdownText

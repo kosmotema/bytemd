@@ -1,14 +1,14 @@
-# @bytemd/plugin-gemoji
+# @kosmotema/bytemd-plugin-gemoji
 
-[![npm](https://img.shields.io/npm/v/@bytemd/plugin-gemoji.svg)](https://npm.im/@bytemd/plugin-gemoji)
+[![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-plugin-gemoji.svg)](https://npm.im/@kosmotema/bytemd-plugin-gemoji)
 
 ByteMD plugin to support Gemoji shortcodes
 
 ## Usage
 
 ```js
-import gemoji from '@bytemd/plugin-gemoji'
-import { Editor } from 'bytemd'
+import { Editor } from '@kosmotema/bytemd'
+import gemoji from '@kosmotema/bytemd-plugin-gemoji'
 
 new Editor({
   target: document.body,

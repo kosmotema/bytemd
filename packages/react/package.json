@@ -1,14 +1,20 @@
 {
-  "name": "@bytemd/react",
+  "name": "@kosmotema/bytemd-react",
   "version": "1.21.0",
   "description": "Hackable Markdown Editor and Viewer",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bytedance/bytemd.git",
+    "url": "https://github.com/kosmotema/bytemd.git",
     "directory": "packages/react"
   },
   "license": "MIT",
   "author": "Rongjian Zhang",
+  "contributors": [
+    {
+      "name": "Artem Pitikin",
+      "email": "git@kosmotema.dev"
+    }
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -28,7 +34,7 @@
     "locales"
   ],
   "dependencies": {
-    "bytemd": "workspace:*"
+    "@kosmotema/bytemd": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^18.0.31",

@@ -1,14 +1,20 @@
 {
-  "name": "@bytemd/plugin-gfm",
+  "name": "@kosmotema/bytemd-plugin-gfm",
   "version": "1.21.0",
   "description": "ByteMD plugin to support GFM (autolink literals, strikethrough, tables, tasklists)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bytedance/bytemd.git",
+    "url": "https://github.com/kosmotema/bytemd.git",
     "directory": "packages/plugin-gfm"
   },
   "license": "MIT",
   "author": "Rongjian Zhang",
+  "contributors": [
+    {
+      "name": "Artem Pitikin",
+      "email": "git@kosmotema.dev"
+    }
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -31,9 +37,9 @@
     "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
-    "bytemd": "workspace:*"
+    "@kosmotema/bytemd": "workspace:*"
   },
   "peerDependencies": {
-    "bytemd": "^1.5.0"
+    "@kosmotema/bytemd": "^1.5.0"
   }
 }

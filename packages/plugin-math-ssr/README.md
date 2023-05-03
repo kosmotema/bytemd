@@ -1,14 +1,14 @@
-# @bytemd/plugin-math-ssr
+# @kosmotema/bytemd-plugin-math-ssr
 
-[![npm](https://img.shields.io/npm/v/@bytemd/plugin-math-ssr.svg)](https://npm.im/@bytemd/plugin-math-ssr)
+[![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-plugin-math-ssr.svg)](https://npm.im/@kosmotema/bytemd-plugin-math-ssr)
 
 ByteMD plugin to support math formula (SSR compatible)
 
 ## Usage
 
 ```js
-import math from '@bytemd/plugin-math-ssr'
-import { Editor } from 'bytemd'
+import { Editor } from '@kosmotema/bytemd'
+import math from '@kosmotema/bytemd-plugin-math-ssr'
 import 'katex/dist/katex.css'
 
 new Editor({

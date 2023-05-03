@@ -1,6 +1,6 @@
 <script>
-  import { Editor } from 'bytemd'
-  import gfm from '@bytemd/plugin-gfm'
+  import { Editor } from '@kosmotema/bytemd'
+  import gfm from '@kosmotema/bytemd-plugin-gfm'
   import 'bytemd/dist/index.css'
 
   let value = ''

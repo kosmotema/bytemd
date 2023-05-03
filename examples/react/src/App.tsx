@@ -1,6 +1,6 @@
 import './App.css'
-import pluginGfm from '@bytemd/plugin-gfm'
-import { Editor } from '@bytemd/react'
+import pluginGfm from '@kosmotema/bytemd-plugin-gfm'
+import { Editor } from '@kosmotema/bytemd-react'
 import 'bytemd/dist/index.css'
 import React, { useMemo, useState } from 'react'
 

@@ -1,14 +1,20 @@
 {
-  "name": "@bytemd/plugin-gemoji",
+  "name": "@kosmotema/bytemd-plugin-gemoji",
   "version": "1.21.0",
   "description": "ByteMD plugin to support Gemoji shortcodes",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bytedance/bytemd.git",
+    "url": "https://github.com/kosmotema/bytemd.git",
     "directory": "packages/plugin-gemoji"
   },
   "license": "MIT",
   "author": "Rongjian Zhang",
+  "contributors": [
+    {
+      "name": "Artem Pitikin",
+      "email": "git@kosmotema.dev"
+    }
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -31,9 +37,9 @@
     "remark-gemoji": "^7.0.1"
   },
   "devDependencies": {
-    "bytemd": "workspace:*"
+    "@kosmotema/bytemd": "workspace:*"
   },
   "peerDependencies": {
-    "bytemd": "^1.5.0"
+    "@kosmotema/bytemd": "^1.5.0"
   }
 }

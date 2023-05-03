@@ -1,5 +1,5 @@
 {
-  "name": "@bytemd/example-vue",
+  "name": "@kosmotema/bytemd-example-vue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,9 +7,9 @@
     "serve": "vue-cli-service serve"
   },
   "dependencies": {
-    "@bytemd/plugin-gfm": "latest",
-    "@bytemd/vue": "latest",
-    "bytemd": "latest",
+    "@kosmotema/bytemd": "latest",
+    "@kosmotema/bytemd-plugin-gfm": "latest",
+    "@kosmotema/bytemd-vue": "latest",
     "vue": "^2.6.14"
   },
   "devDependencies": {

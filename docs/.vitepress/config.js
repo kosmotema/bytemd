@@ -12,7 +12,7 @@ export default defineConfig({
       },
       {
         text: 'GitHub',
-        link: 'https://github.com/bytedance/bytemd',
+        link: 'https://github.com/kosmotema/bytemd',
       },
     ],
   },

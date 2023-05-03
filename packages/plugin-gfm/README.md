@@ -1,14 +1,14 @@
-# @bytemd/plugin-gfm
+# @kosmotema/bytemd-plugin-gfm
 
-[![npm](https://img.shields.io/npm/v/@bytemd/plugin-gfm.svg)](https://npm.im/@bytemd/plugin-gfm)
+[![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-plugin-gfm.svg)](https://npm.im/@kosmotema/bytemd-plugin-gfm)
 
 ByteMD plugin to support GFM (autolink literals, strikethrough, tables, tasklists)
 
 ## Usage
 
 ```js
-import gfm from '@bytemd/plugin-gfm'
-import { Editor } from 'bytemd'
+import { Editor } from '@kosmotema/bytemd'
+import gfm from '@kosmotema/bytemd-plugin-gfm'
 
 new Editor({
   target: document.body,

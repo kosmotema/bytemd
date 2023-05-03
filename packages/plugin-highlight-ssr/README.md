@@ -1,14 +1,14 @@
-# @bytemd/plugin-highlight-ssr
+# @kosmotema/bytemd-plugin-highlight-ssr
 
-[![npm](https://img.shields.io/npm/v/@bytemd/plugin-highlight-ssr.svg)](https://npm.im/@bytemd/plugin-highlight-ssr)
+[![npm](https://img.shields.io/npm/v/@kosmotema/bytemd-plugin-highlight-ssr.svg)](https://npm.im/@kosmotema/bytemd-plugin-highlight-ssr)
 
 ByteMD plugin to highlight code blocks (SSR compatible)
 
 ## Usage
 
 ```js
-import highlight from '@bytemd/plugin-highlight-ssr'
-import { Editor } from 'bytemd'
+import { Editor } from '@kosmotema/bytemd'
+import highlight from '@kosmotema/bytemd-plugin-highlight-ssr'
 import 'highlight.js/styles/default.css'
 
 new Editor({

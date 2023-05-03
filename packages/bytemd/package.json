@@ -1,5 +1,5 @@
 {
-  "name": "bytemd",
+  "name": "@kosmotema/bytemd",
   "version": "1.21.0",
   "description": "Hackable Markdown Editor and Viewer",
   "keywords": [
@@ -9,11 +9,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bytedance/bytemd.git",
+    "url": "https://github.com/kosmotema/bytemd.git",
     "directory": "packages/bytemd"
   },
   "license": "MIT",
   "author": "Rongjian Zhang",
+  "contributors": [
+    {
+      "name": "Artem Pitikin",
+      "email": "git@kosmotema.dev"
+    }
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
