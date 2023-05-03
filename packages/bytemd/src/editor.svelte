@@ -154,9 +154,12 @@
     editor.setOption('readOnly', readOnly)
   }
 
-  $: if (editor) {
-    fullscreen, editor.refresh()
-  }
+  $: fullscreen,
+    tick().then(() => {
+      if (editor) {
+        editor.refresh()
+      }
+    })
 
   // Scroll sync vars
   let syncEnabled = true
