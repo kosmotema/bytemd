@@ -1,7 +1,7 @@
 import './App.css'
 import pluginGfm from '@kosmotema/bytemd-plugin-gfm'
 import { Editor } from '@kosmotema/bytemd-react'
-import 'bytemd/dist/index.css'
+import '@kosmotema/bytemd/dist/index.css'
 import React, { useMemo, useState } from 'react'
 
 function App() {

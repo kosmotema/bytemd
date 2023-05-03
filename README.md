@@ -42,7 +42,7 @@ There are two components: `Editor` and `Viewer`. `Editor` is the Markdown editor
 Before using the component, remember to import CSS file to make styles correct:
 
 ```js
-import 'bytemd/dist/index.css'
+import '@kosmotema/bytemd/dist/index.css'
 ```
 
 ### Svelte

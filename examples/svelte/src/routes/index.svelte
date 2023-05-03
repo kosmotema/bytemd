@@ -1,7 +1,7 @@
 <script>
   import { Editor } from '@kosmotema/bytemd'
   import gfm from '@kosmotema/bytemd-plugin-gfm'
-  import 'bytemd/dist/index.css'
+  import '@kosmotema/bytemd/dist/index.css'
 
   let value = ''
   let plugins = [gfm()]
