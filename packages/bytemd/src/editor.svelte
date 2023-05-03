@@ -40,7 +40,10 @@
   export let maxLength: NonNullable<Props['maxLength']> = Infinity
 
   $: mergedLocale = { ...en, ...locale }
-  const dispatch = createEventDispatcher<{ change: { value: string } }>()
+  const dispatch = createEventDispatcher<{
+    change: { value: string }
+    blur: undefined
+  }>()
 
   $: actions = getBuiltinActions(mergedLocale, plugins, uploadImages)
   $: split = mode === 'split' || (mode === 'auto' && containerWidth >= 800)
@@ -181,6 +184,10 @@
 
     editor.on('change', () => {
       dispatch('change', { value: editor.getValue() })
+    })
+
+    editor.on('blur', () => {
+      dispatch('blur')
     })
 
     const updateBlockPositions = throttle(() => {

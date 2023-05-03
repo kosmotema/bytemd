@@ -3,12 +3,18 @@ import React, { useEffect, useRef } from 'react'
 
 export interface EditorProps extends bytemd.EditorProps {
   onChange?(value: string): void
+  onBlur?(): void
 }
 
-export const Editor: React.FC<EditorProps> = ({ onChange, ...props }) => {
+export const Editor: React.FC<EditorProps> = ({
+  onChange,
+  onBlur,
+  ...props
+}) => {
   const ed = useRef<bytemd.Editor>()
   const el = useRef<HTMLDivElement>(null)
   const onChangeRef = useRef<EditorProps['onChange']>()
+  const onBlurRef = useRef<EditorProps['onBlur']>()
 
   useEffect(() => {
     if (!el.current) return
@@ -20,6 +26,9 @@ export const Editor: React.FC<EditorProps> = ({ onChange, ...props }) => {
     editor.$on('change', (e: CustomEvent<{ value: string }>) => {
       onChangeRef.current?.(e.detail.value)
     })
+    editor.$on('blur', () => {
+      onBlurRef.current?.()
+    })
     ed.current = editor
 
     return () => {
@@ -30,6 +39,10 @@ export const Editor: React.FC<EditorProps> = ({ onChange, ...props }) => {
   useEffect(() => {
     onChangeRef.current = onChange
   }, [onChange])
+
+  useEffect(() => {
+    onBlurRef.current = onBlur
+  }, [onBlur])
 
   useEffect(() => {
     // TODO: performance

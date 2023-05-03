@@ -46,6 +46,9 @@ export default defineComponent({
       editor.$on('change', (e) => {
         emit('change', e.detail.value)
       })
+      editor.$on('blur', (e) => {
+        emit('blur')
+      })
       editorRef.value = editor
     })
 
