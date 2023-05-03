@@ -26,8 +26,6 @@ Playground here: https://bytemd.js.org/playground/
 
 The default entry of NPM package only supports modern browsers. To make legacy browsers (**IE9+**) work, You can compile it with ESNext -> ES5 transpilers, such as [Babel](https://babeljs.io/) or [SWC](https://swc.rs/).
 
-> The ES5 bundle will no longer be available after version 1.11.0. If you need it, you can use [version 1.11.0](https://unpkg.com/bytemd@1.11.0/dist/index.es5.min.js) or earlier versions
-
 Notice that polyfills are not included, and should be imported manually, see the [legacy browser example](https://github.com/kosmotema/bytemd/blob/main/examples/legacy-browser/index.html).
 
 ## Usage
