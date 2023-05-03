@@ -6,6 +6,13 @@ ByteMD is a Markdown editor component built with Svelte. It could also be used i
 
 Playground here: https://bytemd.js.org/playground/
 
+## Changes from original [ByteMD](https://github.com/bytedance/bytemd)
+
+1. Added support of `blur` event from the editor.
+2. Added support for reactive `readOnly` property.
+3. Editor now refreshes when entering fullscreen mode.
+4. Removed `Source code` button from the toolbar.
+
 ## Features
 
 1. **Lightweight and framework agnostic**: ByteMD is built with [Svelte](https://svelte.dev/). It compiles to vanilla JS DOM manipulation without importing any UI Framework runtime bundle, which makes it lightweight, and easily adapted to other libraries/frameworks.
