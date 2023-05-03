@@ -20,7 +20,7 @@
     EditorProps as Props,
   } from './types'
   import Viewer from './viewer.svelte'
-  import type { Editor, KeyMap } from 'codemirror'
+  import type { Editor, EditorConfiguration, KeyMap } from 'codemirror'
   import type { Root, Element } from 'hast'
   import { debounce, throttle } from 'lodash-es'
   import { onMount, createEventDispatcher, onDestroy, tick } from 'svelte'
@@ -38,6 +38,7 @@
   export let uploadImages: Props['uploadImages'] = undefined
   export let overridePreview: Props['overridePreview'] = undefined
   export let maxLength: NonNullable<Props['maxLength']> = Infinity
+  export let readOnly: EditorConfiguration['readOnly'] = false
 
   $: mergedLocale = { ...en, ...locale }
   const dispatch = createEventDispatcher<{
@@ -147,6 +148,10 @@
     tick().then(() => {
       on()
     })
+  }
+
+  $: if (editor) {
+    editor.setOption('readOnly', readOnly)
   }
 
   // Scroll sync vars

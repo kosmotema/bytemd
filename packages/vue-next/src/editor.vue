@@ -18,6 +18,8 @@ export default defineComponent({
     editorConfig: Object,
     locale: Object,
     uploadImages: Function,
+    maxLength: Number,
+    readOnly: [Boolean, String],
   },
   emits: ['change'],
   setup(props, { emit }) {

@@ -191,7 +191,7 @@ export interface EditorProps extends ViewerProps {
    *
    * https://codemirror.net/doc/manual.html#config
    */
-  editorConfig?: Omit<EditorConfiguration, 'value' | 'placeholder'>
+  editorConfig?: Omit<EditorConfiguration, 'value' | 'placeholder' | 'readOnly'>
   /**
    * i18n locale
    *
@@ -214,6 +214,12 @@ export interface EditorProps extends ViewerProps {
    * Maximum length (number of characters) of value
    */
   maxLength?: number
+
+  /**
+   * Disables editing of the editor content by the user.
+   * If the special value "nocursor" is given (instead of simply true), focusing of the editor is also disallowed.
+   */
+  readOnly?: EditorConfiguration['readOnly']
 }
 
 export interface ViewerProps {

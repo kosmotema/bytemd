@@ -18,6 +18,7 @@ export default {
     locale: Object,
     uploadImages: Function,
     maxLength: Number,
+    readOnly: [Boolean, String],
   },
   mounted() {
     const editor = new bytemd.Editor({
