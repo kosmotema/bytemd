@@ -10,8 +10,9 @@ Playground here: https://bytemd.js.org/playground/
 
 1. Added support of `blur` event from the editor.
 2. Added support for reactive `readOnly` property.
-3. Editor now refreshes when entering fullscreen mode.
+3. Editor now refreshes when entering fullscreen mode or changing mode to/from `split`.
 4. Removed `Source code` button from the toolbar.
+5. Allowed passing custom props to `div` wrapper element for `@kosmotema/bytemd-react`.
 
 ## Features
 
@@ -88,6 +89,9 @@ const App = () => {
       plugins={plugins}
       onChange={(v) => {
         setValue(v)
+      }}
+      wrapperProps={{
+        className: "my-awesome-editor"
       }}
     />
   )
