@@ -1,14 +1,17 @@
 import * as bytemd from '@kosmotema/bytemd'
-import React, { useEffect, useRef } from 'react'
+import React, { ComponentPropsWithoutRef, useEffect, useRef } from 'react'
 
 export interface EditorProps extends bytemd.EditorProps {
   onChange?(value: string): void
   onBlur?(): void
+
+  wrapperProps?: Omit<ComponentPropsWithoutRef<"div">, "children">
 }
 
 export const Editor: React.FC<EditorProps> = ({
   onChange,
   onBlur,
+  wrapperProps,
   ...props
 }) => {
   const ed = useRef<bytemd.Editor>()
@@ -49,5 +52,5 @@ export const Editor: React.FC<EditorProps> = ({
     ed.current?.$set(props)
   }, [props])
 
-  return <div ref={el}></div>
+  return <div {...wrapperProps} ref={el}></div>
 }
