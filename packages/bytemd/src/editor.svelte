@@ -155,6 +155,7 @@
   }
 
   $: fullscreen,
+    split,
     tick().then(() => {
       if (editor) {
         editor.refresh()
