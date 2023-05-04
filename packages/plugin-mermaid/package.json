@@ -1,6 +1,6 @@
 {
   "name": "@kosmotema/bytemd-plugin-mermaid",
-  "version": "1.23.0",
+  "version": "1.24.0",
   "description": "ByteMD plugin to support Mermaid diagram",
   "repository": {
     "type": "git",
