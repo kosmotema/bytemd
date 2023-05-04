@@ -69,21 +69,14 @@
     let preview: string
 
     if (split && activeTab === false) {
-      if (sidebar) {
-        edit = `width:calc(50% - ${sidebar ? 140 : 0}px)`
-        preview = `width:calc(50% - ${sidebar ? 140 : 0}px)`
-      } else {
-        edit = 'width:50%'
-        preview = 'width:50%'
-      }
+      edit = 'width:50%'
+      preview = 'width:50%'
     } else if (activeTab === 'preview') {
       edit = 'display:none'
-      preview = `width:calc(100% - ${sidebar ? 280 : 0}px)`
+      preview = `width:100%`
     } else {
-      edit = `width:calc(100% - ${sidebar ? 280 : 0}px)`
+      edit = `width:100%`
       preview = 'display:none'
-      // TODO: use width:0 to make scroll sync work until
-      // the position calculation improved (causes white screen after switching to editor only)
     }
 
     return { edit, preview }

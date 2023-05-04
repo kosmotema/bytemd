@@ -29,7 +29,7 @@
   <ul>
     {#each items as action}
       {#if action.cheatsheet}
-        <li>
+        <li class="bytemd-help-item">
           <div class="bytemd-help-icon">{@html action.icon}</div>
           <div class="bytemd-help-title">{action.title}</div>
           <div class="bytemd-help-content">
@@ -43,7 +43,7 @@
   <ul>
     {#each items as action}
       {#if action.handler && action.handler.type === 'action' && action.handler.shortcut}
-        <li>
+        <li class="bytemd-help-item">
           <div class="bytemd-help-icon">{@html action.icon}</div>
           <div class="bytemd-help-title">{action.title}</div>
           <div class="bytemd-help-content">
