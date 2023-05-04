@@ -147,6 +147,10 @@
     editor.setOption('readOnly', readOnly)
   }
 
+  $: if (editor) {
+    editor.setOption('placeholder', placeholder)
+  }
+
   $: fullscreen,
     split,
     tick().then(() => {
