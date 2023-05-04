@@ -32,6 +32,8 @@ $max-width: 800px;
   border: 1px solid $border-color;
   background-color: $white;
   height: 300px;
+  display: grid;
+  grid-template: auto 1fr auto / 1fr;
 
   .CodeMirror,
   code,
@@ -45,13 +47,15 @@ $max-width: 800px;
     background-color: $gray-000;
     user-select: none;
     overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
 
     &-left {
-      float: left;
+      margin-right: auto;
     }
 
     &-right {
-      float: right;
+      margin-left: auto;
     }
 
     &-tab {
@@ -131,7 +135,7 @@ $max-width: 800px;
   }
 
   &-body {
-    height: calc(100% - 33px - 25px);
+    flex-grow: 1;
     overflow: auto;
   }
 
@@ -260,8 +264,11 @@ $max-width: 800px;
     line-height: 24px;
     border-top: 1px solid $border-color;
     user-select: none;
+    display: flex;
+    flex-wrap: wrap;
     &-left {
-      float: left;
+      margin-right: auto;
+      padding-right: 4px;
       span {
         padding-left: 16px;
       }
@@ -270,7 +277,8 @@ $max-width: 800px;
       }
     }
     &-right {
-      float: right;
+      margin-left: auto;
+      padding-left: 4px;
       label,
       span {
         margin-right: 16px;
