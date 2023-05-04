@@ -260,11 +260,11 @@ export function getBuiltinActions(
       title: locale.image,
       icon: icons.Pic,
       cheatsheet: `![${locale.imageAlt}](url "${locale.imageTitle}")`,
-      handler: uploadImages
-        ? {
-            type: 'action',
-            shortcut: getShortcutWithPrefix('I', true),
-            async click(ctx) {
+      handler: {
+        type: 'action',
+        shortcut: getShortcutWithPrefix('I', true),
+        click: uploadImages
+          ? async (ctx) => {
               const fileList = await selectFiles({
                 accept: 'image/*',
                 multiple: true,
@@ -273,9 +273,17 @@ export function getBuiltinActions(
               if (fileList?.length) {
                 await handleImageUpload(ctx, uploadImages, Array.from(fileList))
               }
+            }
+          : ({ editor, wrapText, codemirror }) => {
+              wrapText('![', '](url "")')
+              const cursor = editor.getCursor()
+              editor.setSelection(
+                codemirror.Pos(cursor.line, cursor.ch + 2),
+                codemirror.Pos(cursor.line, cursor.ch + 5)
+              )
+              editor.focus()
             },
-          }
-        : undefined,
+      },
     },
     {
       title: locale.code,
