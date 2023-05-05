@@ -5,7 +5,7 @@ export interface EditorProps extends bytemd.EditorProps {
   onChange?(value: string): void
   onBlur?(): void
 
-  wrapperProps?: Omit<ComponentPropsWithoutRef<"div">, "children">
+  wrapperProps?: Omit<ComponentPropsWithoutRef<'div'>, 'children'>
 }
 
 export const Editor: React.FC<EditorProps> = ({
