@@ -1,6 +1,6 @@
 # ByteMD
 
-![test](https://github.com/kosmotema/bytemd/workflows/test/badge.svg) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkosmotema%2Fbytemd.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkosmotema%2Fbytemd?ref=badge_shield)
+![test](https://github.com/kosmotema/bytemd/workflows/test/badge.svg) ![version](https://img.shields.io/github/v/tag/kosmotema/bytemd?label=version)
 
 ByteMD is a Markdown editor component built with Svelte. It could also be used in other libraries/frameworks such as React, Vue and Angular.
 
@@ -347,5 +347,3 @@ Now we have completed a minimalist version of the plugin! For more details and r
 ## License
 
 MIT
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkosmotema%2Fbytemd.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkosmotema%2Fbytemd?ref=badge_large)
