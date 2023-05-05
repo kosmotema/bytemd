@@ -30,7 +30,7 @@ packages.forEach((p) => {
 
 fs.writeJsonSync('tsconfig.json', {
   files: [],
-  references: packages.map((p) => ({ path: path.join('packages', p) })),
+  references: packages.map((p) => ({ path: `packages/${p}` })),
 })
 
 packages.forEach((p) => {

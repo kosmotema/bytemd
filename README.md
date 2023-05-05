@@ -91,7 +91,7 @@ const App = () => {
         setValue(v)
       }}
       wrapperProps={{
-        className: "my-awesome-editor"
+        className: 'my-awesome-editor',
       }}
     />
   )
