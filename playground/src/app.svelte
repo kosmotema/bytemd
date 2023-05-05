@@ -24,7 +24,9 @@
   }
 
   const locales = stripPrefixes(
-    import.meta.glob('/node_modules/bytemd/locales/*.json', { eager: true })
+    import.meta.glob('/node_modules/@kosmotema/bytemd/locales/*.json', {
+      eager: true,
+    })
   )
   const gfmLocales = stripPrefixes(
     import.meta.glob(
