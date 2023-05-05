@@ -15,4 +15,8 @@ export default defineConfig({
       preprocess: [sveltePreprocessor],
     }),
   ],
+  // https://github.com/vitest-dev/vitest/issues/2834
+  resolve: {
+    conditions: ["browser"]
+  }
 })
