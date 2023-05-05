@@ -13,6 +13,7 @@ Playground here: https://bytemd.js.org/playground/
 3. Editor now refreshes when entering fullscreen mode or changing mode to/from `split`.
 4. Removed `Source code` button from the toolbar.
 5. Allowed passing custom props to `div` wrapper element for `@kosmotema/bytemd-react`.
+6. Made `placeholder` reactive.
 
 ## Features
 
@@ -176,6 +177,7 @@ editor.$on('change', (e) => {
 | `locale` |  | i18n locale. Available locales could be found at `bytemd/locales`, default: use `en.json` |
 | `uploadImages` | `function` | Specify how to upload images. If set, the image icon will appear on the toolbar |
 | `maxLength` | `number` | Maximum length (number of characters) of value |
+| `readOnly` | `boolean \| "nocursor"` | Disables editing of the content by the user [(more info)](https://codemirror.net/5/doc/manual.html#option_readOnly) |
 
 ### Style customization
 
