@@ -8,8 +8,8 @@
     "build": "pnpm clean && node scripts/build.mjs && tsc --build",
     "clean": "rimraf -g packages/*/tsconfig.tsbuildinfo && rimraf -g packages/*/dist",
     "dev": "pnpm --filter playground dev",
-    "format": "prettier --write '**/*.{ts,tsx,json,md,svelte}' && sort-package-json package.json 'packages/*/package.json'",
-    "postinstall": "node scripts/postinstall.mjs && pnpm format && sort-json packages/*/locales/*.json",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md,svelte}\" && sort-package-json package.json \"packages/*/package.json\"",
+    "postinstall": "node scripts/postinstall.mjs && pnpm format && node scripts/sort-locales.mjs",
     "pub": "pnpm build && lerna publish",
     "style": "prettier --check '**/*.{ts,tsx,json,md,svelte}'",
     "test": "vitest"
