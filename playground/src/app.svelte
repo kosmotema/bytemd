@@ -10,7 +10,7 @@
   import mediumZoom from '@kosmotema/bytemd-plugin-medium-zoom'
   import mermaid from '@kosmotema/bytemd-plugin-mermaid'
   import '@kosmotema/bytemd/dist/index.css'
-  import 'github-markdown-css'
+  import 'github-markdown-css/github-markdown-light.css'
   import 'highlight.js/styles/vs.css'
   // placed after highlight styles to override `code` padding
   import 'katex/dist/katex.css'
