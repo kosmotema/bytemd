@@ -91,7 +91,7 @@
 
   const tippyClass = 'bytemd-tippy'
   const tippyClassRight = 'bytemd-tippy-right'
-  const tippyPathKey = 'bytemd-tippy-path'
+  const tippyPathKey = 'data-bytemd-tippy-path'
 
   function getPayloadFromElement(e: Element) {
     const paths = e
@@ -242,7 +242,7 @@
         {#if item.handler}
           <div
             class={['bytemd-toolbar-icon', tippyClass].join(' ')}
-            bytemd-tippy-path={index}
+            data-bytemd-tippy-path={index}
           >
             {@html item.icon}
           </div>
@@ -276,7 +276,7 @@
         <div
           class={['bytemd-toolbar-icon', tippyClass, tippyClassRight].join(' ')}
           class:bytemd-toolbar-icon-active={item.active}
-          bytemd-tippy-path={index}
+          data-bytemd-tippy-path={index}
         >
           {@html item.icon}
         </div>
