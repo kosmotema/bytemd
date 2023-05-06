@@ -58,6 +58,10 @@ packages.forEach((p) => {
   pkg.exports = {
     '.': {
       types: './dist/index.d.ts',
+      // "svelte" export should be placed before "import" or "require"
+      ...(pkg.name === '@kosmotema/bytemd'
+        ? { svelte: './svelte/index.js' }
+        : {}),
       import: './dist/index.mjs',
       require: './dist/index.js',
     },
