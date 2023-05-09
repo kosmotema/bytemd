@@ -82,12 +82,12 @@ export interface BytemdViewerContext {
   file: VFile
 }
 
-type Listener = (context: BytemdEditorContext) => void
+type Listener<T> = (context: BytemdEditorContext, event: T) => void
 
 type BytemdActionHandler =
   | {
       type: 'action'
-      click: Listener
+      click: Listener<MouseEvent>
       /**
        * Keyboard shortcut
        *
@@ -100,15 +100,29 @@ type BytemdActionHandler =
       /**
        * mouseenter event listener, only takes effect in dropdown items
        */
-      mouseenter?: Listener
+      mouseenter?: Listener<MouseEvent>
       /**
        * mouseleave event listener, only takes effect in dropdown items
        */
-      mouseleave?: Listener
+      mouseleave?: Listener<MouseEvent>
+      /**
+       * set to `true` if the action doesn't change content of the editor
+       * and should be available to use in read-only mode
+       *
+       * @default false
+       */
+      immutable?: boolean
     }
   | {
       type: 'dropdown'
       actions: BytemdAction[]
+      /**
+       * set to `true` if at least one of the actions doesn't change
+       * content of the editor and should be available in read-only mode
+       *
+       * @default false
+       */
+      immutable?: boolean
     }
 
 export interface BytemdAction {

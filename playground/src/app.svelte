@@ -57,6 +57,7 @@
   let mode = 'auto'
   let localeKey = 'en'
   let maxLength: number
+  let readOnly = false
 
   let enabled = {
     breaks: false,
@@ -105,6 +106,8 @@
     </select>
     , Max length:
     <input bind:value={maxLength} type="number" />
+    , Read only:
+    <input bind:checked={readOnly} type="checkbox" />
   </div>
   <div class="line">
     Plugins:
@@ -119,6 +122,7 @@
     {mode}
     {plugins}
     {maxLength}
+    {readOnly}
     placeholder={'Start writing with ByteMD'}
     locale={locales[localeKey]}
     uploadImages={(files) => {
