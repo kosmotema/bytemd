@@ -1,0 +1,28 @@
+{
+  "name": "playground-svelte",
+  "private": true,
+  "dependencies": {
+    "@kosmotema/bytemd": "workspace:*",
+    "@kosmotema/bytemd-plugin-breaks": "workspace:*",
+    "@kosmotema/bytemd-plugin-frontmatter": "workspace:*",
+    "@kosmotema/bytemd-plugin-gemoji": "workspace:*",
+    "@kosmotema/bytemd-plugin-gfm": "workspace:*",
+    "@kosmotema/bytemd-plugin-highlight": "workspace:*",
+    "@kosmotema/bytemd-plugin-highlight-ssr": "workspace:*",
+    "@kosmotema/bytemd-plugin-math": "workspace:*",
+    "@kosmotema/bytemd-plugin-math-ssr": "workspace:*",
+    "@kosmotema/bytemd-plugin-medium-zoom": "workspace:*",
+    "@kosmotema/bytemd-plugin-mermaid": "workspace:*",
+    "@sveltejs/vite-plugin-svelte": "2.0.4",
+    "github-markdown-css": "^5.2.0",
+    "highlight.js": "^11.7.0",
+    "katex": "^0.16.4",
+    "svelte-preprocess": "^5.0.3",
+    "vite": "^4.2.1"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+}

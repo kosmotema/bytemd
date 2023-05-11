@@ -7,7 +7,8 @@
   "scripts": {
     "build": "pnpm clean && node scripts/build.mjs && tsc --build",
     "clean": "rimraf -g packages/*/tsconfig.tsbuildinfo && rimraf -g packages/*/dist",
-    "dev": "pnpm --filter playground dev",
+    "dev:svelte": "pnpm --filter playground-svelte dev",
+    "dev:react": "pnpm --filter playground-react dev",
     "format": "prettier --write \"**/*.{ts,tsx,json,md,svelte}\" && sort-package-json package.json \"packages/*/package.json\"",
     "postinstall": "node scripts/postinstall.mjs && pnpm format && node scripts/sort-locales.mjs",
     "pub": "pnpm build && lerna publish",

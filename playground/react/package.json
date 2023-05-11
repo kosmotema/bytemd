@@ -1,5 +1,5 @@
 {
-  "name": "playground",
+  "name": "playground-react",
   "private": true,
   "dependencies": {
     "@kosmotema/bytemd": "workspace:*",
@@ -13,11 +13,15 @@
     "@kosmotema/bytemd-plugin-math-ssr": "workspace:*",
     "@kosmotema/bytemd-plugin-medium-zoom": "workspace:*",
     "@kosmotema/bytemd-plugin-mermaid": "workspace:*",
-    "@sveltejs/vite-plugin-svelte": "2.0.4",
+    "@kosmotema/bytemd-react": "workspace:*",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "4.0.0",
     "github-markdown-css": "^5.2.0",
     "highlight.js": "^11.7.0",
     "katex": "^0.16.4",
-    "svelte-preprocess": "^5.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "vite": "^4.2.1"
   },
   "scripts": {
