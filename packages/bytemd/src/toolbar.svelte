@@ -278,6 +278,7 @@
                 class={['bytemd-toolbar-icon', tippyClass].join(' ')}
                 class:bytemd-toolbar-icon-disabled={disabled}
                 data-bytemd-tippy-path={index}
+                tabindex={item.handler.immutable ? 0 : -1}
               >
                 {@html item.icon}
               </button>
@@ -287,7 +288,7 @@
                 class={['bytemd-toolbar-icon', tippyClass].join(' ')}
                 class:bytemd-toolbar-icon-disabled={disabled}
                 data-bytemd-tippy-path={index}
-                tabindex={disabled ? null : 0}
+                tabindex={item.handler.immutable ? 0 : null}
               >
                 {@html item.icon}
               </div>
@@ -326,6 +327,7 @@
               class:bytemd-toolbar-icon-disabled={disabled}
               class:bytemd-toolbar-icon-active={item.active}
               data-bytemd-tippy-path={index}
+              tabindex={item.handler.immutable ? 0 : -1}
             >
               {@html item.icon}
             </button>
@@ -338,7 +340,7 @@
               class:bytemd-toolbar-icon-disabled={disabled}
               class:bytemd-toolbar-icon-active={item.active}
               data-bytemd-tippy-path={index}
-              tabindex={disabled ? null : 0}
+              tabindex={item.handler.immutable ? 0 : null}
             >
               {@html item.icon}
             </div>
