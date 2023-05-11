@@ -40,6 +40,6 @@
     "@kosmotema/bytemd": "workspace:*"
   },
   "peerDependencies": {
-    "@kosmotema/bytemd": "^1.5.0"
+    "@kosmotema/bytemd": "workspace:^"
   }
 }
