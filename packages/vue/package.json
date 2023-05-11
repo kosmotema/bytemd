@@ -33,15 +33,14 @@
     "dist",
     "locales"
   ],
-  "dependencies": {
-    "@kosmotema/bytemd": "workspace:*"
-  },
   "devDependencies": {
+    "@kosmotema/bytemd": "workspace:*",
     "vite-plugin-vue2": "^2.0.3",
     "vue": "^2.7.14",
     "vue-template-compiler": "^2.7.14"
   },
   "peerDependencies": {
+    "@kosmotema/bytemd": "workspace:^",
     "vue": "^2.0.0"
   }
 }

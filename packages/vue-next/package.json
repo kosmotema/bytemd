@@ -33,14 +33,13 @@
     "dist",
     "locales"
   ],
-  "dependencies": {
-    "@kosmotema/bytemd": "workspace:*"
-  },
   "devDependencies": {
+    "@kosmotema/bytemd": "workspace:*",
     "@vitejs/plugin-vue": "^4.1.0",
     "vue": "^3.2.47"
   },
   "peerDependencies": {
+    "@kosmotema/bytemd": "workspace:^",
     "vue": "^3.0.0"
   }
 }
