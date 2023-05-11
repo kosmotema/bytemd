@@ -137,6 +137,7 @@
   function init() {
     delegateInstance = delegate(toolbar, {
       target: `.${tippyClass}`,
+      appendTo: 'parent',
       onShow({ reference }) {
         if (reference.classList.contains('bytemd-toolbar-icon-disabled')) {
           return false
