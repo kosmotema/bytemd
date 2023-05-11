@@ -3,11 +3,12 @@
 <script lang="ts">
   import { icons } from './icons'
   import type { BytemdEditorContext, BytemdAction, BytemdLocale } from './types'
-  import { createEventDispatcher, onMount } from 'svelte'
+  import { createEventDispatcher, onDestroy, onMount, tick } from 'svelte'
   import type { DelegateInstance } from 'tippy.js'
   import { delegate } from 'tippy.js'
 
   const dispatch = createEventDispatcher()
+  const tabs = ['write', 'preview'] as const
   let toolbar: HTMLElement
 
   export let context: BytemdEditorContext
@@ -18,6 +19,7 @@
   export let locale: BytemdLocale
   export let actions: BytemdAction[]
   export let rightAfferentActions: BytemdAction[]
+  export let readOnly: boolean = false
 
   interface RightAction extends BytemdAction {
     active?: boolean
@@ -38,6 +40,7 @@
         click() {
           dispatch('click', 'toc')
         },
+        immutable: true,
       },
       active: tocActive,
     },
@@ -49,6 +52,7 @@
         click() {
           dispatch('click', 'help')
         },
+        immutable: true,
       },
       active: helpActive,
     },
@@ -60,6 +64,7 @@
         click() {
           dispatch('tab', 'write')
         },
+        immutable: true,
       },
       active: writeActive,
       hidden: !split,
@@ -72,6 +77,7 @@
         click() {
           dispatch('tab', 'preview')
         },
+        immutable: true,
       },
       active: previewActive,
       hidden: !split,
@@ -84,6 +90,7 @@
         click() {
           dispatch('click', 'fullscreen')
         },
+        immutable: true,
       },
     },
     ...rightAfferentActions,
@@ -91,7 +98,7 @@
 
   const tippyClass = 'bytemd-tippy'
   const tippyClassRight = 'bytemd-tippy-right'
-  const tippyPathKey = 'bytemd-tippy-path'
+  const tippyPathKey = 'data-bytemd-tippy-path'
 
   function getPayloadFromElement(e: Element) {
     const paths = e
@@ -122,7 +129,7 @@
       }
     })
 
-    return { paths, item: item }
+    return { paths, item }
   }
 
   let delegateInstance: DelegateInstance
@@ -130,19 +137,21 @@
   function init() {
     delegateInstance = delegate(toolbar, {
       target: `.${tippyClass}`,
+      onShow({ reference }) {
+        if (reference.classList.contains('bytemd-toolbar-icon-disabled')) {
+          return false
+        }
+      },
       onCreate({ setProps, reference }) {
         const payload = getPayloadFromElement(reference)
         if (!payload) return
         const { item, paths } = payload
         const { handler } = item
-        if (!handler) return
+        if (!handler || (readOnly && !handler.immutable)) return
 
         if (handler.type === 'action') {
           setProps({
             content: item.title,
-            onHidden(ins) {
-              ins.destroy()
-            },
           })
         } else if (handler.type === 'dropdown') {
           // dropdown
@@ -156,131 +165,188 @@
             dropdown.appendChild(dropdownTitle)
           }
 
-          handler.actions.forEach((subAction, i) => {
-            const dropdownItem = document.createElement('div')
+          handler.actions.forEach(({ handler, icon, title }, i) => {
+            if (readOnly && !handler?.immutable) {
+              return
+            }
+
+            const dropdownItem = document.createElement(
+              handler?.type === 'action' ? 'button' : 'div'
+            )
             dropdownItem.classList.add('bytemd-dropdown-item')
             dropdownItem.setAttribute(tippyPathKey, [...paths, i].join('-'))
-            if (subAction.handler?.type === 'dropdown') {
+            if (handler?.type === 'dropdown') {
               dropdownItem.classList.add(tippyClass)
+              dropdownItem.tabIndex = 0
             }
+
+            if (handler?.type === 'action') {
+              const { mouseenter, mouseleave } = handler
+              if (mouseenter) {
+                dropdownItem.addEventListener('mouseenter', (event) => {
+                  mouseenter(context, event as MouseEvent)
+                })
+              }
+              if (mouseleave) {
+                dropdownItem.addEventListener('mouseleave', (event) => {
+                  mouseleave(context, event as MouseEvent)
+                })
+              }
+
+              dropdownItem.addEventListener('click', (event) => {
+                handleClick(event as MouseEvent)
+              })
+            }
+
             if (reference.classList.contains(tippyClassRight)) {
               dropdownItem.classList.add(tippyClassRight)
             }
             // div.setAttribute('data-tippy-placement', 'right');
             dropdownItem.innerHTML = `${
-              subAction.icon
-                ? `<div class="bytemd-dropdown-item-icon">${subAction.icon}</div>`
+              icon
+                ? `<span class="bytemd-dropdown-item-icon">${icon}</span>`
                 : ''
-            }<div class="bytemd-dropdown-item-title">${subAction.title}</div>`
+            }<span class="bytemd-dropdown-item-title">${title}</span>`
             dropdown.appendChild(dropdownItem)
           })
 
-          setProps({
-            allowHTML: true,
-            showOnCreate: true,
-            theme: 'light-border',
-            placement: 'bottom-start',
-            interactive: true,
-            interactiveDebounce: 50,
-            arrow: false,
-            offset: [0, 4],
-            content: dropdown.outerHTML,
-            onHidden(ins) {
-              ins.destroy()
-            },
-            onCreate(ins) {
-              ;[
-                ...ins.popper.querySelectorAll('.bytemd-dropdown-item'),
-              ].forEach((el, i) => {
-                const actionHandler = handler.actions[i]?.handler
-                if (actionHandler?.type === 'action') {
-                  const { mouseenter, mouseleave } = actionHandler
-                  if (mouseenter) {
-                    el.addEventListener('mouseenter', () => {
-                      mouseenter(context)
-                    })
-                  }
-                  if (mouseleave) {
-                    el.addEventListener('mouseleave', () => {
-                      mouseleave(context)
-                    })
-                  }
-                }
-              })
-            },
-          })
+          if (dropdown.children.length === 0) {
+            setProps({
+              content: item.title,
+            })
+          } else {
+            setProps({
+              showOnCreate: true,
+              theme: 'light-border',
+              placement: 'bottom-start',
+              interactive: true,
+              interactiveDebounce: 50,
+              arrow: false,
+              offset: [0, 4],
+              content: dropdown,
+            })
+          }
         }
       },
     })
   }
 
+  function reinit() {
+    if (!delegateInstance) {
+      return
+    }
+
+    delegateInstance?.destroy()
+    init()
+  }
+
+  $: readOnly, reinit()
+
+  $: fullscreen, tick().then(() => delegateInstance?.popperInstance?.update())
+
   onMount(() => {
     init()
   })
 
-  function handleClick(e: MouseEvent | KeyboardEvent) {
+  onDestroy(() => {
+    delegateInstance?.destroy()
+  })
+
+  function handleClick(e: MouseEvent) {
     const target = (e.target as Element).closest(`[${tippyPathKey}]`)
+    console.log(e)
     if (!target) return
     const handler = getPayloadFromElement(target)?.item?.handler
     if (handler?.type === 'action') {
-      handler.click(context)
+      handler.click(context, e)
     }
-    delegateInstance?.destroy()
-    init()
   }
 </script>
 
-<div
-  class="bytemd-toolbar"
-  bind:this={toolbar}
-  on:click={handleClick}
-  on:keydown|self={(e) => ['Enter', 'Space'].includes(e.code) && handleClick(e)}
->
-  <div class="bytemd-toolbar-left">
+<div class="bytemd-toolbar" bind:this={toolbar}>
+  <ul class="bytemd-toolbar-side bytemd-toolbar-left">
     {#if split}
       {#each actions as item, index}
         {#if item.handler}
-          <div
-            class={['bytemd-toolbar-icon', tippyClass].join(' ')}
-            bytemd-tippy-path={index}
-          >
-            {@html item.icon}
-          </div>
+          {@const disabled = readOnly && !item.handler.immutable}
+
+          <li class="bytemd-toolbar-item">
+            {#if item.handler.type === 'action'}
+              <button
+                {disabled}
+                on:click={handleClick}
+                class={['bytemd-toolbar-icon', tippyClass].join(' ')}
+                class:bytemd-toolbar-icon-disabled={disabled}
+                data-bytemd-tippy-path={index}
+                tabindex={item.handler.immutable ? 0 : -1}
+              >
+                {@html item.icon}
+              </button>
+            {:else}
+              <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+              <div
+                class={['bytemd-toolbar-icon', tippyClass].join(' ')}
+                class:bytemd-toolbar-icon-disabled={disabled}
+                data-bytemd-tippy-path={index}
+                tabindex={item.handler.immutable ? 0 : null}
+              >
+                {@html item.icon}
+              </div>
+            {/if}
+          </li>
         {/if}
       {/each}
     {:else}
-      <div
-        on:click={() => dispatch('tab', 'write')}
-        on:keydown|self={(e) =>
-          ['Enter', 'Space'].includes(e.code) && dispatch('tab', 'write')}
-        class="bytemd-toolbar-tab"
-        class:bytemd-toolbar-tab-active={activeTab !== 'preview'}
-      >
-        {locale.write}
-      </div>
-      <div
-        on:click={() => dispatch('tab', 'preview')}
-        on:keydown|self={(e) =>
-          ['Enter', 'Space'].includes(e.code) && dispatch('tab', 'preview')}
-        class="bytemd-toolbar-tab"
-        class:bytemd-toolbar-tab-active={activeTab === 'preview'}
-      >
-        {locale.preview}
-      </div>
+      {#each tabs as tab (tab)}
+        <li class="bytemd-toolbar-item">
+          <button
+            on:click={() => dispatch('tab', tab)}
+            class="bytemd-toolbar-tab"
+            class:bytemd-toolbar-tab-active={activeTab === tab}
+          >
+            {locale[tab]}
+          </button>
+        </li>
+      {/each}
     {/if}
-  </div>
+  </ul>
 
-  <div class="bytemd-toolbar-right">
+  <ul class="bytemd-toolbar-side bytemd-toolbar-right">
     {#each rightActions as item, index}
-      {#if !item.hidden}
-        <div
-          class={['bytemd-toolbar-icon', tippyClass, tippyClassRight].join(' ')}
-          class:bytemd-toolbar-icon-active={item.active}
-          bytemd-tippy-path={index}
-        >
-          {@html item.icon}
-        </div>
+      {#if !item.hidden && item.handler}
+        {@const disabled = readOnly && !item.handler.immutable}
+
+        <li class="bytemd-toolbar-item">
+          {#if item.handler.type === 'action'}
+            <button
+              {disabled}
+              on:click={handleClick}
+              class={['bytemd-toolbar-icon', tippyClass, tippyClassRight].join(
+                ' '
+              )}
+              class:bytemd-toolbar-icon-disabled={disabled}
+              class:bytemd-toolbar-icon-active={item.active}
+              data-bytemd-tippy-path={index}
+              tabindex={item.handler.immutable ? 0 : -1}
+            >
+              {@html item.icon}
+            </button>
+          {:else}
+            <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+            <div
+              class={['bytemd-toolbar-icon', tippyClass, tippyClassRight].join(
+                ' '
+              )}
+              class:bytemd-toolbar-icon-disabled={disabled}
+              class:bytemd-toolbar-icon-active={item.active}
+              data-bytemd-tippy-path={index}
+              tabindex={item.handler.immutable ? 0 : null}
+            >
+              {@html item.icon}
+            </div>
+          {/if}
+        </li>
       {/if}
     {/each}
-  </div>
+  </ul>
 </div>

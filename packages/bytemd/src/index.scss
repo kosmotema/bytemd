@@ -7,6 +7,12 @@ $border-color: $gray-200;
 $primary: $blue;
 $max-width: 800px;
 
+%-reset-button {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
 .bytemd {
   // reset
   box-sizing: border-box;
@@ -50,6 +56,11 @@ $max-width: 800px;
     display: flex;
     flex-wrap: wrap;
 
+    &-side {
+      display: flex;
+      padding: 0;
+    }
+
     &-left {
       margin-right: auto;
     }
@@ -58,11 +69,18 @@ $max-width: 800px;
       margin-left: auto;
     }
 
+    &-item {
+      list-style: none;
+      flex-shrink: 0;
+    }
+
     &-tab {
-      display: inline-block;
+      @extend %-reset-button;
+
+      display: block;
       cursor: pointer;
-      padding-left: 8px;
-      padding-right: 8px;
+      padding: 0 6px;
+      margin: 0 2px;
       line-height: 24px;
       font-size: 14px;
       &-active {
@@ -71,8 +89,8 @@ $max-width: 800px;
     }
 
     &-icon {
-      display: inline-block;
-      vertical-align: top;
+      @extend %-reset-button;
+
       cursor: pointer;
       border-radius: 4px;
       margin-left: 6px;
@@ -84,11 +102,15 @@ $max-width: 800px;
         width: 24px;
         height: 24px;
       }
-      &:hover {
+      &:hover:not(&-disabled) {
         background-color: $border-color;
       }
       &-active {
         color: $blue-500;
+      }
+      &-disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
       }
     }
 
@@ -102,17 +124,24 @@ $max-width: 800px;
     max-height: 300px;
     overflow: auto;
     font-size: 14px;
+    padding: 0 6px;
     &-title {
-      margin: 0 12px;
+      margin: 0 6px;
       font-weight: 500;
       border-bottom: 1px solid $border-color;
       line-height: 32px;
       color: $gray-700;
     }
     &-item {
-      padding: 4px 12px;
+      @extend %-reset-button;
+
+      display: block;
+      margin: 2px 0;
+      padding: 2px 6px;
       height: 32px;
       cursor: pointer;
+      width: 100%;
+      text-align: start;
       &:hover {
         background-color: $gray-100;
       }

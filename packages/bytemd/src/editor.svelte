@@ -366,6 +366,7 @@
     {activeTab}
     {sidebar}
     {fullscreen}
+    readOnly={!!readOnly}
     rightAfferentActions={actions.rightActions}
     locale={mergedLocale}
     actions={actions.leftActions}
