@@ -1,6 +1,6 @@
 {
   "name": "@kosmotema/bytemd-plugin-highlight-ssr",
-  "version": "2.0.0-alpha.3",
+  "version": "2.0.0-alpha.4",
   "description": "ByteMD plugin to highlight code blocks (SSR compatible)",
   "repository": {
     "type": "git",
