@@ -73,6 +73,7 @@ $max-width: 800px;
     &-item {
       list-style: none;
       flex-shrink: 0;
+      display: flex;
     }
 
     &-tab {
