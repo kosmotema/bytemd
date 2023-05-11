@@ -143,7 +143,7 @@
           return false
         }
       },
-      onCreate({ setProps, reference }) {
+      onCreate({ setProps, reference, popper }) {
         const payload = getPayloadFromElement(reference)
         if (!payload) return
         const { item, paths } = payload
@@ -226,6 +226,8 @@
               offset: [0, 4],
               content: dropdown,
             })
+
+            popper.classList.add('bytemd-tippy-dropdown')
           }
         }
       },
