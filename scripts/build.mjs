@@ -94,7 +94,7 @@ import { build } from 'vite'
           target: 'es2019', // nullish coalescing in es2020
           lib: {
             entry: 'src/index.ts',
-            name: camelCase(pkg.name),
+            name: camelCase(pkg.name.replace(/^@[^\/]+\//, '')),
             formats: [format],
             fileName: 'index',
           },
