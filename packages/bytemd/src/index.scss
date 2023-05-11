@@ -145,6 +145,7 @@ $max-width: 800px;
       cursor: pointer;
       width: 100%;
       text-align: start;
+      border-radius: 4px;
       &:hover {
         background-color: $gray-100;
       }
