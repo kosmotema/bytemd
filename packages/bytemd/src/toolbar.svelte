@@ -297,12 +297,14 @@
         {/if}
       {/each}
     {:else}
+      {@const selectedTab = activeTab || 'write'}
+
       {#each tabs as tab (tab)}
         <li class="bytemd-toolbar-item">
           <button
             on:click={() => dispatch('tab', tab)}
             class="bytemd-toolbar-tab"
-            class:bytemd-toolbar-tab-active={activeTab === tab}
+            class:bytemd-toolbar-tab-active={selectedTab === tab}
           >
             {locale[tab]}
           </button>
