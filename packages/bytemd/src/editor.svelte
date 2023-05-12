@@ -350,12 +350,9 @@
       // console.log(containerWidth);
     }).observe(root, { box: 'border-box' })
 
-    // No need to call `on` because cm instance would change once after init
+    dispatch('ready', editor)
 
-    tick().then(() => {
-      editor.refresh()
-      dispatch('ready', editor)
-    })
+    // No need to call `on` because cm instance would change once after init
   })
   onDestroy(off)
 </script>
