@@ -4,6 +4,7 @@ import React, { ComponentPropsWithoutRef, useEffect, useRef } from 'react'
 export interface EditorProps extends bytemd.EditorProps {
   onChange?(value: string): void
   onBlur?(): void
+  onReady?(editor: bytemd.CodeMirrorEditor): void
 
   wrapperProps?: Omit<ComponentPropsWithoutRef<'div'>, 'children'>
 }
@@ -11,6 +12,7 @@ export interface EditorProps extends bytemd.EditorProps {
 export const Editor: React.FC<EditorProps> = ({
   onChange,
   onBlur,
+  onReady,
   wrapperProps,
   ...props
 }) => {
@@ -18,6 +20,7 @@ export const Editor: React.FC<EditorProps> = ({
   const el = useRef<HTMLDivElement>(null)
   const onChangeRef = useRef<EditorProps['onChange']>()
   const onBlurRef = useRef<EditorProps['onBlur']>()
+  const onReadyRef = useRef<EditorProps['onReady']>()
 
   useEffect(() => {
     if (!el.current) return
@@ -31,6 +34,9 @@ export const Editor: React.FC<EditorProps> = ({
     })
     editor.$on('blur', () => {
       onBlurRef.current?.()
+    })
+    editor.$on('ready', (e: CustomEvent<bytemd.CodeMirrorEditor>) => {
+      onReadyRef.current?.(e.detail)
     })
     ed.current = editor
 
@@ -46,6 +52,10 @@ export const Editor: React.FC<EditorProps> = ({
   useEffect(() => {
     onBlurRef.current = onBlur
   }, [onBlur])
+
+  useEffect(() => {
+    onReadyRef.current = onReady
+  }, [onReady])
 
   useEffect(() => {
     // TODO: performance
