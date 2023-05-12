@@ -44,6 +44,7 @@
   const dispatch = createEventDispatcher<{
     change: { value: string }
     blur: undefined
+    ready: Editor
   }>()
 
   $: actions = getBuiltinActions(mergedLocale, plugins, uploadImages)
@@ -350,6 +351,11 @@
     }).observe(root, { box: 'border-box' })
 
     // No need to call `on` because cm instance would change once after init
+
+    tick().then(() => {
+      editor.refresh()
+      dispatch('ready', editor)
+    })
   })
   onDestroy(off)
 </script>

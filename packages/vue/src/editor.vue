@@ -31,6 +31,9 @@ export default {
     editor.$on('blur', () => {
       this.$emit('blur')
     })
+    editor.$on('ready', (e) => {
+      this.$emit('ready', e.detail)
+    })
     this.editor = editor
   },
   watch: {

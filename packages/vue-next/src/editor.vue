@@ -21,7 +21,7 @@ export default defineComponent({
     maxLength: Number,
     readOnly: [Boolean, String],
   },
-  emits: ['change'],
+  emits: ['change', 'blur', 'ready'],
   setup(props, { emit }) {
     const el: Ref<HTMLElement | null> = ref(null)
     const editorRef: Ref<Editor | null> = ref(null)
@@ -50,6 +50,9 @@ export default defineComponent({
       })
       editor.$on('blur', (e) => {
         emit('blur')
+      })
+      editor.$on('ready', (e) => {
+        emit('blur', e.detail)
       })
       editorRef.value = editor
     })

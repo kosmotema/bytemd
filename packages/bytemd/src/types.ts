@@ -7,6 +7,8 @@ import type { Options } from 'remark-rehype'
 import type { Processor } from 'unified'
 import type { VFile } from 'vfile'
 
+export type CodeMirrorEditor = Editor
+
 export interface BytemdLocale {
   write: string
   preview: string
@@ -62,7 +64,7 @@ export interface BytemdEditorContext extends EditorUtils {
   /**
    * CodeMirror editor instance
    */
-  editor: Editor
+  editor: CodeMirrorEditor
   /**
    * The root element
    */
