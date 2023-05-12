@@ -21,7 +21,7 @@ export default defineComponent({
     maxLength: Number,
     readOnly: [Boolean, String],
   },
-  emits: ['change'],
+  emits: ['change', 'blur'],
   setup(props, { emit }) {
     const el: Ref<HTMLElement | null> = ref(null)
     const editorRef: Ref<Editor | null> = ref(null)
