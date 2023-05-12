@@ -350,7 +350,7 @@
       // console.log(containerWidth);
     }).observe(root, { box: 'border-box' })
 
-    dispatch('ready', editor)
+    tick().then(() => dispatch('ready', editor))
 
     // No need to call `on` because cm instance would change once after init
   })
