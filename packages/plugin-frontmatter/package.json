@@ -1,6 +1,6 @@
 {
   "name": "@kosmotema/bytemd-plugin-frontmatter",
-  "version": "2.0.0-alpha.7",
+  "version": "2.0.0-alpha.9",
   "description": "ByteMD plugin to parse frontmatter",
   "repository": {
     "type": "git",
