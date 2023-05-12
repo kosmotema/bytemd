@@ -18,9 +18,26 @@ export const Editor: React.FC<EditorProps> = ({
 }) => {
   const ed = useRef<bytemd.Editor>()
   const el = useRef<HTMLDivElement>(null)
-  const onChangeRef = useRef<EditorProps['onChange']>()
-  const onBlurRef = useRef<EditorProps['onBlur']>()
-  const onReadyRef = useRef<EditorProps['onReady']>()
+  const onChangeRef = useRef(onChange)
+  const onBlurRef = useRef(onBlur)
+  const onReadyRef = useRef(onReady)
+
+  useEffect(() => {
+    onChangeRef.current = onChange
+  }, [onChange])
+
+  useEffect(() => {
+    onBlurRef.current = onBlur
+  }, [onBlur])
+
+  useEffect(() => {
+    onReadyRef.current = onReady
+  }, [onReady])
+
+  useEffect(() => {
+    // TODO: performance
+    ed.current?.$set(props)
+  }, [props])
 
   useEffect(() => {
     if (!el.current) return
@@ -44,23 +61,6 @@ export const Editor: React.FC<EditorProps> = ({
       editor.$destroy()
     }
   }, [])
-
-  useEffect(() => {
-    onChangeRef.current = onChange
-  }, [onChange])
-
-  useEffect(() => {
-    onBlurRef.current = onBlur
-  }, [onBlur])
-
-  useEffect(() => {
-    onReadyRef.current = onReady
-  }, [onReady])
-
-  useEffect(() => {
-    // TODO: performance
-    ed.current?.$set(props)
-  }, [props])
 
   return <div {...wrapperProps} ref={el}></div>
 }
