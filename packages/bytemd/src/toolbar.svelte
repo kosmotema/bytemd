@@ -257,7 +257,6 @@
 
   function handleClick(e: MouseEvent) {
     const target = (e.target as Element).closest(`[${tippyPathKey}]`)
-    console.log(e)
     if (!target) return
     const handler = getPayloadFromElement(target)?.item?.handler
     if (handler?.type === 'action') {
