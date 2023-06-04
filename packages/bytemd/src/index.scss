@@ -74,7 +74,6 @@ $max-width: 800px;
     &-item {
       list-style: none;
       flex-shrink: 0;
-      display: flex;
     }
 
     &-tab {
@@ -90,6 +89,10 @@ $max-width: 800px;
         color: $primary;
       }
     }
+  }
+
+  &-action {
+    display: flex;
 
     &-icon {
       @extend %-reset-button;
@@ -115,6 +118,15 @@ $max-width: 800px;
         cursor: not-allowed;
         opacity: 0.5;
       }
+    }
+  }
+
+  &-actions-tooltip {
+    display: flex;
+    flex-wrap: wrap;
+
+    &-item {
+      margin: 2px;
     }
   }
 

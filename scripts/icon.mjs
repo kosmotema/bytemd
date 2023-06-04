@@ -26,6 +26,7 @@ const meta = {
     'ListTwo',
     'OrderedList',
     'DividingLine',
+    'Components',
 
     'AlignTextLeftOne',
     'Helpcenter',
