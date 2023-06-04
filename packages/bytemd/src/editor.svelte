@@ -1,7 +1,7 @@
 <svelte:options immutable={true} />
 
 <script lang="ts">
-  import en from '../locales/en.json'
+  import en from './locales/en.json'
   import {
     createCodeMirror,
     createEditorUtils,
