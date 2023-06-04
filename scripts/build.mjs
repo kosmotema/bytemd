@@ -135,7 +135,9 @@ import { build } from 'vite'
           })
           await fs.writeFile(
             dest,
-            item.code.replace(/(?<=<script)\s+lang="ts"/g, '')
+            item.code
+              .replace(/(["']).\/locales\//, '$1../locales/')
+              .replace(/(?<=<script)\s+lang=['"]ts['"]/g, '')
           )
         }
       }
