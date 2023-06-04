@@ -277,11 +277,12 @@
 
   $: readOnly, reinit()
 
-  function hide() {
-    delegateInstance?.hide()
+  function hideTooltips() {
+    delegateInstance?.disable()
+    delegateInstance?.enable()
   }
 
-  $: fullscreen, hide()
+  $: fullscreen, hideTooltips()
 
   function updateActionsTooltip() {
     actionsPopover?.$set({
@@ -311,8 +312,7 @@
       handler.click(context, e)
     }
     if (target.closest('.tippy-box')) {
-      console.log('hide tippy')
-      delegateInstance?.hide()
+      hideTooltips()
     }
   }
 </script>
