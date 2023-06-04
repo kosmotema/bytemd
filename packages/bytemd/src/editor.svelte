@@ -107,7 +107,7 @@
     actions.leftActions.forEach(({ handler }) => {
       if (handler?.type === 'action' && handler.shortcut) {
         keyMap[handler.shortcut] = () => {
-          handler.click(context)
+          handler.click(context, undefined)
         }
       }
     })

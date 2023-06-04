@@ -89,7 +89,7 @@ type Listener<T> = (context: BytemdEditorContext, event: T) => void
 type BytemdActionHandler =
   | {
       type: 'action'
-      click: Listener<MouseEvent>
+      click: Listener<MouseEvent | undefined>
       /**
        * Keyboard shortcut
        *
