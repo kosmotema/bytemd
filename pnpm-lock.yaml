@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -118,6 +122,9 @@ importers:
       '@types/mdast':
         specifier: ^3.0.11
         version: 3.0.11
+      classix:
+        specifier: ^2.1.32
+        version: 2.1.32
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -3015,6 +3022,10 @@ packages:
   /ci-info@3.3.2:
     resolution: {integrity: sha512-xmDt/QIAdeZ9+nfdPsaBCpMvHNLFiLdjj59qjqn+6iPe6YmHGQ35sBnQ8uslRBXFmXkiZQOJRjvQeoGppoTjjg==}
     dev: true
+
+  /classix@2.1.32:
+    resolution: {integrity: sha512-E08TD9XlszvcuOzEQJnjQEibqQp6qJH5idbjh8l5pWDV2poJwk0Gexcra0ZdMITUuqAveHju4A9B/HKk1pk7sA==}
+    dev: false
 
   /clean-stack@2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}

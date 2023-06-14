@@ -16,7 +16,7 @@
 </script>
 
 <script lang="ts">
-  import clsx from 'clsx'
+  import { cx } from 'classix'
 
   let className: string | undefined = undefined
 
@@ -25,7 +25,7 @@
   export let as: string = 'div'
   export { className as class }
 
-  $: rootClassName = clsx('bytemd-action', className)
+  $: rootClassName = cx('bytemd-action', className)
 </script>
 
 {#each actions as item, index}
@@ -38,7 +38,7 @@
           {...$$restProps}
           {disabled}
           on:click
-          class={clsx('bytemd-action-icon', className)}
+          class={cx('bytemd-action-icon', className)}
           class:bytemd-action-icon-disabled={disabled}
           class:bytemd-action-icon-active={item.active}
           tabindex={item.handler.immutable ? 0 : -1}
@@ -51,7 +51,7 @@
         <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
         <div
           {...$$restProps}
-          class={clsx('bytemd-action-icon', className)}
+          class={cx('bytemd-action-icon', className)}
           class:bytemd-action-icon-disabled={disabled}
           class:bytemd-action-icon-active={item.active}
           data-bytemd-tippy-trigger

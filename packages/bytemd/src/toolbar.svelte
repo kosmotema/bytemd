@@ -10,7 +10,7 @@
   } from './actions.svelte'
   import { icons } from './icons'
   import type { BytemdEditorContext, BytemdAction, BytemdLocale } from './types'
-  import clsx from 'clsx'
+  import cx from 'classix'
   import { createEventDispatcher, onDestroy, onMount, tick } from 'svelte'
   import type { DelegateInstance, Props } from 'tippy.js'
   import { delegate } from 'tippy.js'
@@ -348,7 +348,7 @@
           on:mousedown|preventDefault={() => {}}
         >
           <div
-            class={clsx(actionIconClass, readOnly && actionDisabledClass)}
+            class={cx(actionIconClass, readOnly && actionDisabledClass)}
             data-bytemd-tippy-actions
             data-bytemd-tippy-trigger
           >
@@ -364,7 +364,7 @@
       {readOnly}
       actions={rightActions}
       as="li"
-      class={clsx('bytemd-toolbar-item')}
+      class={cx('bytemd-toolbar-item')}
       on:click={handleClick}
       data-bytemd-tippy-right
     />
