@@ -1,6 +1,6 @@
 {
   "name": "@kosmotema/bytemd-plugin-highlight",
-  "version": "2.0.0-alpha.10",
+  "version": "2.0.0-alpha.11",
   "description": "ByteMD plugin to highlight code blocks",
   "repository": {
     "type": "git",
