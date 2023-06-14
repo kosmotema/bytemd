@@ -1,7 +1,6 @@
 <svelte:options immutable={true} />
 
 <script lang="ts">
-  import en from './locales/en.json'
   import {
     createCodeMirror,
     createEditorUtils,
@@ -11,6 +10,7 @@
   } from './editor'
   import Help from './help.svelte'
   import { icons } from './icons'
+  import en from './locales/en.json'
   import Status from './status.svelte'
   import Toc from './toc.svelte'
   import Toolbar from './toolbar.svelte'
